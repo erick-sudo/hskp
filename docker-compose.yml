@@ -38,7 +38,7 @@ services:
 
   housekeeper_web:
     build:
-      context: .
+      context: web
       args:
         VITE_BACKEND_DOMAIN: http://ec2-54-74-203-125.eu-west-1.compute.amazonaws.com:8000
     container_name: housekeeping_web
