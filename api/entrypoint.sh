@@ -12,7 +12,7 @@ python3 manage.py loaddata clean_types.json
 python3 manage.py loaddata sub_services.json
 
 # Collect static files
-python manage.py collectstatic
+python manage.py collectstatic --noinput
 
 # Run the specified command (if any)
 exec "$@"

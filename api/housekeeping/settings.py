@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    env('FRONT_END_URL'), 'http://63.34.21.12'
+    env('FRONT_END_URL'), 'http://63.34.21.12', 'http://ec2-63-34-21-12.eu-west-1.compute.amazonaws.com'
 ]
 
 # Application definition
