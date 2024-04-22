@@ -31,7 +31,7 @@ services:
       EMAIL_USE_TLS: 1
       EMAIL_PORT: 587
       DEBUG: 0
-      SECRET_KEY: d2)+*y9)pud71-n_m!qu#qx_glh(+rbat*almc!*!t9!v=w8zr25n42^q#ch!n%fe@-a+8$3=&hzd_(xvl@7ue)v)xr0wwx+*!l)
+      SECRET_KEY: "d2)+*y9)pud71-n_m!qu#qx_glh(+rbat*almc!*!t9!v=w8zr25n42^q#ch!n%fe@-a+8$3=&hzd_(xvl@7ue)v)xr0wwx+*!l)""
     depends_on:
       - postgres_db
     networks:
