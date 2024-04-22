@@ -1,11 +1,17 @@
 # # Layer 1 NODE
 FROM node:18 as builder
 
+# Set build-time arguments
+ARG VITE_BACKEND_DOMAIN
+
 # Working directory for subsequent commands
 WORKDIR /app
 
 #Copy appliaction files into the docker image
 COPY . .
+
+# Write environment variables to a .env file
+RUN echo "VITE_BACKEND_DOMAIN=${VITE_BACKEND_DOMAIN}" > .env
 
 # Install exact dependency versions
 RUN npm ci

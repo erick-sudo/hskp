@@ -19,7 +19,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      FRONT_END_URL: http://localhost
+      FRONT_END_URL: http://ec2-54-74-203-125.eu-west-1.compute.amazonaws.com
       DB_NAME: db_keeper
       DB_USER: user_keeper
       DB_PASSWORD: password_keeper
@@ -37,7 +37,10 @@ services:
       - house_keeping_network
 
   housekeeper_web:
-    build: web
+    build:
+      context: .
+      args:
+        VITE_BACKEND_DOMAIN: http://ec2-54-74-203-125.eu-west-1.compute.amazonaws.com:8000
     container_name: housekeeping_web
     ports:
       - "80:80"
