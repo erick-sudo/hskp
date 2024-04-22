@@ -1,31 +1,34 @@
-# # Layer 1 NODE
-FROM node:18 as builder
+# # # Layer 1 NODE
+# FROM node:18 as builder
 
-# Set build-time arguments
-ARG VITE_BACKEND_DOMAIN
+# # Set build-time arguments
+# ARG VITE_BACKEND_DOMAIN
 
-# Working directory for subsequent commands
+# # Working directory for subsequent commands
+# WORKDIR /app
+
+# #Copy appliaction files into the docker image
+# COPY . .
+
+# # Write environment variables to a .env file
+# RUN echo "VITE_BACKEND_DOMAIN=${VITE_BACKEND_DOMAIN}" > .env
+
+# # Install exact dependency versions
+# RUN npm ci
+
+# # Building app
+# RUN npm run build
+
+FROM nginx:1.21.0-alpine
+
 WORKDIR /app
-
-#Copy appliaction files into the docker image
-COPY . .
-
-# Write environment variables to a .env file
-RUN echo "VITE_BACKEND_DOMAIN=${VITE_BACKEND_DOMAIN}" > .env
-
-# Install exact dependency versions
-RUN npm ci
-
-# Building app
-RUN npm run build
-
-FROM nginx:1.21.0-alpine as production
 
 # Set the environment to production
 ENV NODE_ENV production
 
 # Copying build assets from 'builder' image
-COPY --from=builder /app/dist /usr/share/nginx/html
+# COPY --from=builder /app/dist /usr/share/nginx/html
+COPY dist /usr/share/nginx/html
 
 # Add the ngnix.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
