@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -20,6 +20,7 @@ import VerifyEmail from "./components/VerifyEmail";
 import { AppContext } from "./components/context/AppContext";
 import { Loader } from "./components/common/Loader";
 import Dashboard from "./components/Dashboard";
+import { apis } from "./lib/apis";
 
 function App() {
   const standAloneRoutes = [
@@ -33,6 +34,12 @@ function App() {
   const { loading } = useContext(AppContext);
 
   const { pathname } = useLocation();
+
+  console.log(apis.login);
+
+  useEffect(() => {
+    fetch(apis.login);
+  }, []);
 
   return (
     <>

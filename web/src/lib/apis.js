@@ -1,4 +1,4 @@
-export const base_url = `http://${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/auth/`;
+export const base_url = `http://${'63.34.21.12:8000'}/api/v1/auth/`;
 const house_keeping = base_url.replace("auth", "house_keeper");
 
 export const apis = {

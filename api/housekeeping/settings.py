@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    env('FRONT_END_URL')
+    env('FRONT_END_URL'), 'http://63.34.21.12'
 ]
 
 # Application definition
