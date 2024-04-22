@@ -31,6 +31,7 @@ services:
       EMAIL_USE_TLS: 1
       EMAIL_PORT: 587
       DEBUG: 0
+      SECRET_KEY: d2)+*y9)pud71-n_m!qu#qx_glh(+rbat*almc!*!t9!v=w8zr25n42^q#ch!n%fe@-a+8$3=&hzd_(xvl@7ue)v)xr0wwx+*!l)
     depends_on:
       - postgres_db
     networks:
@@ -40,7 +41,7 @@ services:
     build:
       context: web
       args:
-        VITE_BACKEND_DOMAIN: http://ec2-54-74-203-125.eu-west-1.compute.amazonaws.com:8000
+        VITE_BACKEND_DOMAIN: ec2-54-74-203-125.eu-west-1.compute.amazonaws.com:8000
     container_name: housekeeping_web
     ports:
       - "80:80"
